@@ -1,0 +1,23 @@
+Factor Name,Correlation,Absolute Correlation,Bucket
+pop_density_sq_mile,0.16,0.16,Built Environment
+worker_density_sq_mile,0.21,0.21,Built Environment
+avg_dist_to_transit,-0.41,0.41,Built Environment
+bachelor's degree or higher %,0.16,0.16,Socioeconomic
+unemployment rate %,-0.37,0.37,Demographic
+car_drove_to_work %,-0.39,0.39,Built Environment
+public transportation %,0.07,0.07,Built Environment
+walked %,0.45,0.45,Built Environment
+poverty_rate %,-0.52,0.52,Demographic
+mean travel time to work (minutes),-0.11,0.11,Built Environment
+median household income (dollars),0.3,0.3,Socioeconomic
+no vehicles available %,0.07,0.07,Built Environment
+1 vehicle available %,-0.39,0.39,Built Environment
+2 vehicles available %,-0.17,0.17,Built Environment
+3 or more vehicles available %,0.35,0.35,Built Environment
+median_home_value,0.46,0.46,Socioeconomic
+median_rent,0.24,0.24,Socioeconomic
+median age (years),0.07,0.07,Demographic
+Accommodation and food services,-0.27,0.27,Socioeconomic
+"Arts, entertainment, and recreation",0.06,0.06,Socioeconomic
+Other services (except public administration),-0.09,0.09,Socioeconomic
+Retail trade revenue per establishment,0.21,0.21,Socioeconomic
