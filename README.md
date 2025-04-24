@@ -1,37 +1,75 @@
 # Factors-Influencing-Walkability-A-Comparative-Analysis-Across-US-Combined-Statistical-Areas
-Executive Summary
-This project investigates the factors influencing walkability across Community Statistical Areas (CSAs) in the United States. Utilizing the EPA's National Walkability Index merged with U.S. Census Bureau data (American Community Survey DP02, DP03, DP04, DP05, and NAICS data), the study explores the correlations between walkability scores and various demographic, socioeconomic, built environment, and commuting characteristics at the CSA level. Key analyses include identifying significant predictors of higher walkability, examining the relationship between commuting behaviors and walkability potential, comparing socioeconomic profiles of high-walkability small CSAs versus low-walkability large CSAs, and exploring potential links between walkability and business activity indicators. The findings aim to provide actionable insights for urban planners, policymakers, and community developers seeking to enhance walkability and its associated benefits (e.g., public health, economic activity, environmental sustainability).
+Factors Influencing Walkability of US Combined Statistical Areas (CSAs)
 
-Motivation
-My personal experience in Nashville, where pedestrian infrastructure and opportunities feel limited in comparison with highly walkable cities highlight the significant variation in walkability across different landscapes in the US. This observation sparks a critical question: what distinguishes highly walkable places from those that are less accommodating to pedestrians? This project is motivated by the desire to move beyond anecdotal assessments and systematically identify the demographic, socioeconomic, and built-environment characteristics correlated with high walkability using national datasets (EPA NWI, Census ACS). By identifying and understanding the attributes of the most walker-friendly CSAs, this research aims to provide valuable benchmarks and insights for urban planners, policymakers, and communities seeking to enhance pedestrian accessibility and reap the associated benefits in their own areas.	
-Data Question(s)
-1.)	Which specific demographic factors, socioeconomic factors, and built environment indicators show the strongest correlations with higher National Walkability Index scores?
-2.)	How strongly do commuting behaviors relate to walkability scores across different CSAs? Does high walkability correlate with higher non-car commuting?
-3.)	When comparing the top 5 highest-walkability small CSAs against the bottom 5 lowest-walkability large CSAs, do the high-walkability small CSAs demonstrate better socioeconomic, and built environment profiles?
+## PowerBI Dashboard
+Link: https://app.powerbi.com/groups/me/reports/d2656258-dadb-4f4b-b87a-78eb25a4f9db/62760b28d54ee460dac8?experience=power-bi
 
-Minimum Viable Product (MVP)
-1.) A Merged and Cleaned Dataset: A final dataset integrating variables from the EPA National Walkability Index, Census ACS DP02, DP03, DP04, DP05, and NAICS codes, aggregated or matched at the CSA level. 
-2.)  Correlation Analysis Results: Statistical summaries quantifying the relationships identified in Data Question 1 (Walkability vs. Demographics, Socioeconomics, Built Environment). 
-3.)  Commuting Behavior Analysis: Results addressing Data Question 2 regarding the link between commuting patterns and walkability scores. 
-4.)  Comparative CSA Analysis: Results addressing Data Question 3, comparing the socioeconomic profiles of the selected top small and bottom large CSAs based on walkability. 
-5.)  Business Correlation Insights: Initial findings or visualizations exploring the relationship outlined in Data Question 4. 
-6.)  Key Visualizations: A set of maps, scatter plots, bar charts, or other relevant graphics illustrating the primary findings. 
-7.)  Final Report/Presentation: A PowerPoint/PowerBI presentation summarizing the project's motivation, methodology, data sources, key findings for each research question, limitations, and conclusions/recommendations.
+Table of Contents
 
-Known Issues and Challenges
-1.)	Data Granularity: Analyzing data at the CSA level is useful for regional insights but masks significant variations within CSAs. Findings reflect CSA averages and may not apply uniformly to all neighborhoods within a CSA. This was due to the data not being available for CBSA level (more granular) for all CBSAs analyzed.
-2.)	Data Integration Complexity: Merging datasets from different sources (EPA, multiple Census tables) with potentially varying geographic identifiers or reference periods required careful cleaning, & alignment. 
-3.)	Correlation vs. Causation: The analysis primarily focuses on correlations. While strong correlations suggest relationships, they do not definitively prove causation (ex: does higher income cause higher walkability, or do walkable areas attract higher-income residents, or is it a different factor(s) entirely?).
-4.)	NWI Index Limitations: The National Walkability Index is a composite score based on specific built environment factors (ex: intersection density, proximity to transit). It may not capture all aspects relevant to pedestrian experience.
+* [PowerBI Dashboard](#powerbi-dashboard)
+* [Motivation](#motivation)
+* [Questions](#questions)
+* [Normalizing the Data/Methodology](#normalizing-the-datamethodology)
+* [Problems and Hurdles](#problems-and-hurdles)
+* [Technologies Used](#technologies-used)
+* [Sources](#data-sources)
+* [Conclusion](#conclusion)
 
-Data Sources
+## Motivation:
+
+My motivation behind this project was inspired by my personal experience living in Nashville, where getting around the city feels incredibly car dependent compared to other cities I have visited. This highlighted the stark variation in pedestrian infrastructure across different regions. So, I decided I needed to dig a little deeper to see if I could find factors that are driving walkability in US cities. This project aims to move beyond anecdotal observations to give a more data driven analysis on walkability. I narrowed down the Top 15 and Bottom 15 CSAs for Walkability in the US and looked at many factors from Socioeconomic, Demographic, and Built Environment. The analysis showed that the top factor categories were Built Environment and Socioeconomic. The data is from 2021.
+
+## Questions: 
+
+1.) Which demographic, socioeconomic, and built environment factors correlate with higher walkability scores at the CSA level?
+
+2.)How strongly do commuting behaviors relate to the potential for walkability across CSAs?
+
+3.)How do the top 15 CSAs stack up to the bottom 15 CSAs, which factors have the largest gap between top and bottom?
+
+4.)What are the absolute best walkability CSAs (Small, Medium, Large) and what are the worst? How do they compare with one another?
+
+## Normalizing The Data/Methodology:
+
+Originally the walkability score data was based on Census Block Groups (CBG) the CBG level is the most granular data that the Census collects. Unfortunately this data wasn't avaialable en masse for all of the CBGs I was returning. I decided to go one more level up and see if I could find all of the data for the Core Based Statistical Areas or CBSA. After getting my 30 CBSAs returned the same problem occurred where all of the data wasn't available. I had to normalize the data to be on the Combined Statistical Area (CSA) this level can contain a few counties so it masks neighborhood level variation.
+
+Populations were broken down into 3 distinct categories. Small (<175k population>), Medium (<=500k population), Large (>500k population)
+
+Top and Bottom scoring CSAs were found by finding the nlargest 5 and nsmallest 5 scores for each size category.
+
+Originally went with 25th, 50th, 75th percentile(s) for 
+
+Correlations were all ran using the Spearman method.
+
+## Problems and Hurdles:
+
+My biggest Challenge with this project was Data Granularity. I originally intended to look at the Core-Based-Statistical-Area (CBSA) level which is closer to our definition of what a city is. But, unfortunately the data was not readily available without incredibly time consuming manual cleaning so I went with CSA level data which can contain a few counties - This can and will mask neighborhood-level variation. But, with that being said the CSA level data can still give us a really good idea of where the more walkable and not so walkable cities are located in the US.
+
+## Technologies Used
+
+Python / Pandas - for exploration, correlations, normalizing, aggregations, and joining of the datasets
+PowerBI - for creating interactive dashboard
+PowerPoint - for introduction of Project
+Git - for version control
+Excel - cleaned a few things using it that would've been more time consuming using Python.
+
+## Data Sources
+To answer the above questions I used the following sources to collect datasets for my analysis
+
 Walkability Index from EPA
 https://www.epa.gov/smartgrowth/smart-location-mapping#walkability
+
 DP(Data Profile) DP02-DP05 Census Data
     https://data.census.gov/table/ACSDP5Y2022.DP02
     https://data.census.gov/table/ACSDP1Y2023.DP03?q=dp03
     https://data.census.gov/table/ACSDP1Y2023.DP04?q=dp04
     https://data.census.gov/table/ACSDP1Y2023.DP05?q=dp05
-    NAICS (Business Revenue by Sector) Census Data
+
+NAICS (Business Revenue by Sector) Census Data
        https://data.census.gov/table/ECNBASIC2017.EC1700BASIC?q=NAICS
 
+
+
+## Conclusion
+
+This analysis demonstrates a strong correlation between higher city walkability scores and enhanced urban quality, reflected in both the Built Environment and Socioeconomic indicators. Notably, the top 15 most walkable cities exhibit significantly higher median home values, lower poverty and unemployment rates, reduced car dependency for commuting, and superior access to public transit. Among the factors analyzed, proximity to public transportation emerges as a key lever cities can utilize to improve walkability. Small population CSAs, which lag by almost a full point in walkability score when compared to Medium and Large CSAs - On average they have generally very poor access to public transportation, this presents a clear opportunity: implementing robust public transit options now could significantly boost their walkability before future growth increases implementation challenges. Strategic investment in public transit appears crucial for developing more walkable, equitable, and economically vibrant cities.
