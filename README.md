@@ -2,7 +2,7 @@
 Factors Influencing Walkability of US Combined Statistical Areas (CSAs)
 
 ## PowerBI Dashboard
-Link: https://app.powerbi.com/groups/me/reports/d2656258-dadb-4f4b-b87a-78eb25a4f9db/62760b28d54ee460dac8?experience=power-bi
+Link: https://app.powerbi.com/view?r=eyJrIjoiZGJhMDVjOGMtNzFkYi00ZDJkLWJiMGQtZDE5MTIxNTllMTQ3IiwidCI6IjEwMWRhNTg3LTE4NDMtNGY1Mi04YjhhLTE3YjA2OWM2NmQzMyIsImMiOjJ9
 
 Table of Contents
 
